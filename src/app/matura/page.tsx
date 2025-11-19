@@ -100,8 +100,8 @@ export default function Home() {
         }
         subtitle="Pokażę Ci konkretny system 30 minut dziennie — od listopada do maja. Zamiast paniki w marcu, pewność siebie w maju."
       />
-      <Benefits />
-      <About />
+      <Benefits systemMinutes={30} />
+      <About systemMinutes={30} />
       <Testimonials testimonials={maturaTestimonials} />
       <Footer />
       <ExitIntentPopup

@@ -1,6 +1,10 @@
 import Image from "next/image"
 import { Star, Users, Trophy, Clock } from "lucide-react"
 
+interface AboutProps {
+    systemMinutes?: number
+}
+
 const stats = [
     { label: "Lat doświadczenia", value: "16", icon: Clock },
     { label: "Kursantów", value: "24k+", icon: Users },
@@ -8,7 +12,7 @@ const stats = [
     { label: "Ocena", value: "4.9/5", icon: Star },
 ]
 
-export function About() {
+export function About({ systemMinutes = 15 }: AboutProps) {
     return (
         <section className="py-20 bg-paulina-bg-yellow">
             <div className="container mx-auto px-4">
@@ -39,7 +43,7 @@ export function About() {
                             </p>
                             <p>
                                 Stworzyłam system, który działa — bez wieczornych kłótni, bez stresu,
-                                bez przepłacania. 15-20 minut dziennie wystarczy, by osiągnąć sukces.
+                                bez przepłacania. {systemMinutes} minut dziennie wystarczy, by osiągnąć sukces.
                             </p>
                             <p>
                                 Jestem twórcą kanału na YouTube z ponad <strong>20 mln wyświetleń </strong>

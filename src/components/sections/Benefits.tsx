@@ -1,7 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock, Brain, FileText, ShieldCheck, Zap } from "lucide-react"
 
-const benefits = [
+interface BenefitsProps {
+    systemMinutes?: number
+}
+
+const getBenefits = (minutes: number = 15) => [
     {
         icon: FileText,
         title: 'PDF "Plan 6 miesięcy"',
@@ -14,12 +18,13 @@ const benefits = [
     },
     {
         icon: Clock,
-        title: "System 15 minut",
+        title: `System ${minutes} minut`,
         description: "Jak wpleść naukę w codzienność bez rewolucji w życiu rodziny. Małe kroki, wielkie efekty."
     }
 ]
 
-export function Benefits() {
+export function Benefits({ systemMinutes = 15 }: BenefitsProps) {
+    const benefits = getBenefits(systemMinutes)
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
