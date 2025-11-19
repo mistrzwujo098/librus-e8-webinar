@@ -7,14 +7,14 @@ export function Footer() {
                 <p className="mb-4">
                     &copy; {new Date().getFullYear()} Paulina od Matematyki. Wszelkie prawa zastrzeżone.
                 </p>
-                <div className="flex justify-center gap-6 text-sm">
-                    <Link href="#" className="hover:text-white transition-colors">
+                <div className="flex gap-6 mt-4 md:mt-0">
+                    <Link href="https://paulinaodmatematyki.com/polityka-prywatnosci/" target="_blank" className="text-sm text-slate-500 hover:text-paulina-primary transition-colors">
                         Polityka Prywatności
                     </Link>
-                    <Link href="#" className="hover:text-white transition-colors">
+                    <Link href="https://paulinaodmatematyki.com/regulamin/" target="_blank" className="text-sm text-slate-500 hover:text-paulina-primary transition-colors">
                         Regulamin
                     </Link>
-                    <Link href="mailto:paulina@skutecznekorepetycje.com" className="hover:text-white transition-colors">
+                    <Link href="https://paulinaodmatematyki.com/kontakt" className="text-sm text-slate-500 hover:text-paulina-primary transition-colors">
                         Kontakt
                     </Link>
                 </div>

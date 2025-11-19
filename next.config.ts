@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/librus/e8",
+  basePath: "/librus",
   images: {
     unoptimized: true,
     remotePatterns: [

@@ -1,7 +1,23 @@
 import { OptInForm } from "@/components/features/OptInForm"
 import Image from "next/image"
 
-export function Hero() {
+interface HeroProps {
+    redirectUrl?: string
+    title?: React.ReactNode
+    subtitle?: string
+}
+
+export function Hero({
+    redirectUrl = "/dziekuje",
+    title = (
+        <>
+            Egzamin ósmoklasisty <span className="text-paulina-primary">za 6 miesięcy.</span>
+            <br />
+            Bez wieczornych kłótni.
+        </>
+    ),
+    subtitle = "Pokażę Ci konkretny system 15 minut dziennie — od listopada do maja. Zamiast paniki w marcu, spokój w maju."
+}: HeroProps) {
     return (
         <section className="relative overflow-hidden bg-paulina-bg-purple pt-16 pb-20 lg:pt-24 lg:pb-28">
             <div className="container mx-auto px-4">
@@ -12,18 +28,15 @@ export function Hero() {
                             Autorski system L.A.P.S do zrozumienia matematyki
                         </div>
                         <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl mb-6">
-                            Egzamin ósmoklasisty <span className="text-paulina-primary">za 6 miesięcy.</span>
-                            <br />
-                            Bez wieczornych kłótni.
+                            {title}
                         </h1>
                         <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                            Pokażę Ci konkretny system 15 minut dziennie — od listopada do maja.
-                            Zamiast paniki w marcu, spokój w maju.
+                            {subtitle}
                         </p>
 
                         <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 mb-8">
                             <h3 className="text-lg font-semibold mb-4">Zapisz się bezpłatnie i odbierz plan:</h3>
-                            <OptInForm />
+                            <OptInForm redirectUrl={redirectUrl} />
                         </div>
 
                         <div className="flex items-center gap-4 text-sm text-slate-500">
