@@ -13,6 +13,13 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Egzamin Ósmoklasisty i Matura - Paulina od Matematyki",
   description: "Skuteczne przygotowanie do egzaminów z matematyki. Sprawdź darmowe materiały i kursy.",
+  icons: {
+    icon: [
+      { url: '/favicon-original.png', type: 'image/png', sizes: '512x512' },
+      { url: '/icon.png', type: 'image/png', sizes: '180x180' },
+    ],
+    apple: '/icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -23,12 +30,6 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
-        {/* Favicon - using PNG (original file was PNG disguised as .ico) */}
-        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-original.png" />
-        <link rel="icon" type="image/png" sizes="180x180" href="/icon.png" />
-        <link rel="apple-touch-icon" href="/icon.png" />
-        <link rel="shortcut icon" href="/favicon-original.png" />
-
         {/* Preconnect dla MailerLite */}
         <link rel="preconnect" href="https://assets.mailerlite.com" />
       </head>
