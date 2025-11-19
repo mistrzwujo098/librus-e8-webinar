@@ -116,7 +116,7 @@ export async function trackEvent(
 function trackClientSide(eventType: TrackingEventType, data: TrackingEventData) {
   // Facebook Pixel
   if (typeof window !== 'undefined' && (window as any).fbq) {
-    ;(window as any).fbq('track', eventType, {
+    ; (window as any).fbq('track', eventType, {
       value: data.value,
       currency: data.currency,
       content_name: data.content_name,
@@ -126,7 +126,7 @@ function trackClientSide(eventType: TrackingEventType, data: TrackingEventData) 
 
   // Google Ads
   if (typeof window !== 'undefined' && (window as any).gtag) {
-    ;(window as any).gtag('event', eventType, {
+    ; (window as any).gtag('event', eventType, {
       value: data.value,
       currency: data.currency,
       event_category: data.content_category,
@@ -136,7 +136,7 @@ function trackClientSide(eventType: TrackingEventType, data: TrackingEventData) 
 
   // TikTok Pixel
   if (typeof window !== 'undefined' && (window as any).ttq) {
-    ;(window as any).ttq.track(eventType, {
+    ; (window as any).ttq.track(eventType, {
       value: data.value,
       currency: data.currency,
       content_name: data.content_name,
@@ -210,8 +210,9 @@ export function contact(method?: string) {
  * Track registration start
  */
 export function startRegistration(packageName: string) {
-  trackEvent('StartRegistration', {
-    content_name: packageName,
+  trackEvent('CustomEvent', {
+    content_name: 'StartRegistration',
+    package: packageName,
   })
 }
 

@@ -48,10 +48,12 @@ export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps
             if (groupId) {
                 const workerUrl = process.env.NEXT_PUBLIC_MAILERLITE_WORKER_URL
                 if (workerUrl) {
+                    console.log('[OptInForm] Submitting to:', workerUrl, 'Group:', groupId)
+
                     const response = await fetch(workerUrl, {
-                        method: 'POST',
+                        method: "POST",
                         headers: {
-                            'Content-Type': 'application/json',
+                            "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
                             email: email,
@@ -59,8 +61,11 @@ export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps
                         }),
                     })
 
+                    const data = await response.json()
+                    console.log('[OptInForm] Response:', data)
+
                     if (!response.ok) {
-                        throw new Error('Subscription failed')
+                        throw new Error(data.error || "Wystąpił błąd podczas zapisu")
                     }
                 } else {
                     console.warn("Missing NEXT_PUBLIC_MAILERLITE_WORKER_URL")
