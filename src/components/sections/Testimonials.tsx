@@ -1,7 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "lucide-react"
 
-const testimonials = [
+interface Testimonial {
+    name: string
+    role: string
+    title: string
+    content: string
+    rating: number
+}
+
+interface TestimonialsProps {
+    testimonials?: Testimonial[]
+}
+
+const defaultTestimonials: Testimonial[] = [
     {
         name: "Monika Mączyńska",
         role: "mama",
@@ -74,7 +86,7 @@ const testimonials = [
     }
 ]
 
-export function Testimonials() {
+export function Testimonials({ testimonials = defaultTestimonials }: TestimonialsProps) {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">

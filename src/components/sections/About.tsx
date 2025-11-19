@@ -42,7 +42,7 @@ export function About() {
                                 bez przepłacania. 15-20 minut dziennie wystarczy, by osiągnąć sukces.
                             </p>
                             <p>
-                                Jestem twórcą kanału na YouTube z ponad <strong>18 mln wyświetleń </strong>
+                                Jestem twórcą kanału na YouTube z ponad <strong>20 mln wyświetleń </strong>
                                 oraz wielokrotną laureatką plebiscytu Orły Edukacji.
                             </p>
                         </div>
