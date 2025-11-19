@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
+import { TrackingScripts } from "@/components/features/TrackingScripts";
+import { Suspense } from "react";
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+});
 
 export const metadata: Metadata = {
-  title: "Darmowy Webinar: Egzamin Ósmoklasisty - Paulina od Matematyki",
-  description: "Dołącz do darmowego webinaru i odbierz plan nauki na 6 miesięcy. Bez stresu i kłótni.",
+  title: "Egzamin Ósmoklasisty i Matura - Paulina od Matematyki",
+  description: "Skuteczne przygotowanie do egzaminów z matematyki. Sprawdź darmowe materiały i kursy.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -17,7 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={cn(outfit.className, "antialiased min-h-screen bg-white")}>
+      <body
+        className={`${outfit.variable} antialiased font-sans`}
+      >
+        <Suspense fallback={null}>
+          <TrackingScripts />
+        </Suspense>
         {children}
       </body>
     </html>
