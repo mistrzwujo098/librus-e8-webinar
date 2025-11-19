@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Skrypt do konfiguracji Cloudflare KV dla projektu webinary-blackfriday
+# Skrypt do konfiguracji Cloudflare KV dla projektu librus-e8-webinar
 #
 # INSTRUKCJE:
 # 1. Wypełnij poniższe zmienne swoimi danymi
@@ -30,10 +30,10 @@ KV_NAMESPACE_ID="7a2e20a2655c4de6a5201a7711bd6024"
 # NIE EDYTUJ PONIŻEJ (chyba że wiesz co robisz)
 # ============================================================
 
-echo "📝 Tworzenie konfiguracji dla webinary-blackfriday..."
+echo "📝 Tworzenie konfiguracji dla librus-e8-webinar..."
 
 # Tworzenie pliku JSON z konfiguracją
-cat > config-webinary-blackfriday.json << EOF
+cat > config-librus-e8-webinar.json << EOF
 {
   "facebook": {
     "pixelId": "${FACEBOOK_PIXEL_ID}",
@@ -54,7 +54,7 @@ cat > config-webinary-blackfriday.json << EOF
 }
 EOF
 
-echo "✅ Plik config-webinary-blackfriday.json utworzony"
+echo "✅ Plik config-librus-e8-webinar.json utworzony"
 echo ""
 echo "📤 Uploading do Cloudflare KV..."
 
@@ -62,8 +62,8 @@ echo "📤 Uploading do Cloudflare KV..."
 wrangler kv key put \
   --remote \
   --namespace-id="${KV_NAMESPACE_ID}" \
-  "webinary-blackfriday" \
-  "$(cat config-webinary-blackfriday.json | tr -d '\n' | tr -d ' ')"
+  "librus-e8-webinar" \
+  "$(cat config-librus-e8-webinar.json | tr -d '\n' | tr -d ' ')"
 
 echo ""
 echo "✅ Konfiguracja dodana do Cloudflare KV!"
@@ -74,10 +74,10 @@ echo "🔍 Weryfikacja..."
 wrangler kv key get \
   --remote \
   --namespace-id="${KV_NAMESPACE_ID}" \
-  "webinary-blackfriday"
+  "librus-e8-webinar"
 
 echo ""
-echo "✅ Gotowe! Konfiguracja dla webinary-blackfriday została dodana."
+echo "✅ Gotowe! Konfiguracja dla librus-e8-webinar została dodana."
 echo ""
 echo "📋 Następne kroki:"
 echo "   1. Dodaj zmienne środowiskowe do .env.local w projekcie:"
