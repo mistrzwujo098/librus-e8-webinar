@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { TrackingScripts } from "@/components/features/TrackingScripts";
+import { MailerLiteScript } from "@/components/features/MailerLiteScript";
 import { Suspense } from "react";
 
 const outfit = Outfit({
@@ -14,11 +15,11 @@ export const metadata: Metadata = {
   description: "Skuteczne przygotowanie do egzaminów z matematyki. Sprawdź darmowe materiały i kursy.",
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/librus/favicon.ico', sizes: 'any' },
+      { url: '/librus/icon.png', type: 'image/png' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/icon.png',
+    shortcut: '/librus/favicon.ico',
+    apple: '/librus/icon.png',
   },
 };
 
@@ -29,6 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
+      <head>
+        {/* Preconnect dla MailerLite */}
+        <link rel="preconnect" href="https://assets.mailerlite.com" />
+      </head>
       <body
         className={`${outfit.variable} antialiased font-sans`}
       >
@@ -36,6 +41,7 @@ export default function RootLayout({
           <TrackingScripts />
         </Suspense>
         {children}
+        <MailerLiteScript />
       </body>
     </html>
   );

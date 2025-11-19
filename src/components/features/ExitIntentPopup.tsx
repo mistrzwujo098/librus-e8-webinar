@@ -5,7 +5,12 @@ import { Modal } from "@/components/ui/modal"
 import { OptInForm } from "@/components/features/OptInForm"
 import { Gift } from "lucide-react"
 
-export function ExitIntentPopup() {
+export interface ExitIntentPopupProps {
+    redirectUrl?: string
+    type?: 'e8' | 'matura'
+}
+
+export function ExitIntentPopup({ redirectUrl, type }: ExitIntentPopupProps) {
     const [isOpen, setIsOpen] = React.useState(false)
     const [hasShown, setHasShown] = React.useState(false)
 
@@ -40,7 +45,7 @@ export function ExitIntentPopup() {
                     <h4 className="text-lg font-semibold mb-4 text-slate-900">
                         Wpisz email, aby odebrać prezent:
                     </h4>
-                    <OptInForm />
+                    <OptInForm redirectUrl={redirectUrl} type={type} />
                     <button
                         onClick={() => setIsOpen(false)}
                         className="mt-4 w-full text-center text-sm text-slate-400 hover:text-slate-600 underline"

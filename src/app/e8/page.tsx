@@ -10,13 +10,16 @@ export default function Home() {
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-paulina-bg-yellow selection:text-paulina-primary">
       <Hero
         redirectUrl="/e8/dziekuje"
-        groupId={process.env.NEXT_PUBLIC_MAILERLITE_GROUP_ID_E8}
+        type="e8"
       />
       <Benefits />
       <About />
       <Testimonials />
       <Footer />
-      <ExitIntentPopup />
+      <ExitIntentPopup
+        redirectUrl="/e8/dziekuje"
+        type="e8"
+      />
     </main>
   )
 }

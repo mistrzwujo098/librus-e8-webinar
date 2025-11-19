@@ -10,10 +10,10 @@ import { useState } from "react"
 
 interface OptInFormProps {
     redirectUrl?: string
-    groupId?: string
+    type?: 'e8' | 'matura'
 }
 
-export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps) {
+export function OptInForm({ redirectUrl = "/dziekuje", type }: OptInFormProps) {
     const [email, setEmail] = useState("")
     const [error, setError] = useState("")
     const [isLoading, setIsLoading] = useState(false)
@@ -30,7 +30,7 @@ export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps
             setIsLoading(false)
             return
         }
-        if (!/\S+@\S+\.\S+/.test(email)) {
+        if (!/\S+@\S+\.\S/.test(email)) {
             setError("Wpisz poprawny adres email")
             setIsLoading(false)
             return
@@ -46,8 +46,8 @@ export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps
 
             // Send to MailerLite Worker
             // Send to Next.js API Route (Proxy)
-            if (groupId) {
-                console.log('[OptInForm] Submitting to API Proxy. Group:', groupId)
+            if (type) {
+                console.log('[OptInForm] Submitting to API Proxy. Type:', type)
 
                 // Note: We use /librus/api/subscribe because of basePath: /librus
                 const response = await fetch("/librus/api/subscribe", {
@@ -57,7 +57,7 @@ export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps
                     },
                     body: JSON.stringify({
                         email: email,
-                        groupId: groupId,
+                        type: type,
                     }),
                 })
 

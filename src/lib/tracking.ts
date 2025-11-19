@@ -89,25 +89,43 @@ export async function trackEvent(
   // Client-side pixel tracking
   trackClientSide(eventType, fullEventData)
 
-  // Server-side tracking via Cloudflare Workers
+  // Server-side tracking via Cloudflare Workers (optional)
   if (trackingConfig.workerUrl) {
-    try {
-      await fetch(`${trackingConfig.workerUrl}/event`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          projectId: trackingConfig.projectId,
-          event: fullEventData,
-        }),
-      })
-    } catch (error) {
-      console.error('[Tracking] Server-side error:', error)
-    }
+    trackServerSide(fullEventData)
   }
 
   console.log('[Tracking] Event sent:', eventType)
+}
+
+/**
+ * Server-side tracking via Cloudflare Worker (optional)
+ * Silently fails if worker doesn't exist (as per TRACKING_WORKER_FIX.md)
+ */
+async function trackServerSide(event: TrackingEventData) {
+  if (!trackingConfig.workerUrl) return
+
+  try {
+    const response = await fetch(`${trackingConfig.workerUrl}/event`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        project_id: trackingConfig.projectId,
+        ...event,
+      }),
+    })
+
+    // If worker doesn't exist (404), don't log error
+    if (!response.ok && response.status !== 404) {
+      console.warn('[Tracking] Server-side warning:', response.status)
+    }
+  } catch (error) {
+    // Ignore network errors for optional tracking
+    if (process.env.NODE_ENV === 'development') {
+      console.debug('[Tracking] Server-side tracking unavailable:', error)
+    }
+  }
 }
 
 /**
