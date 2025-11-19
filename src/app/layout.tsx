@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   description: "Skuteczne przygotowanie do egzaminów z matematyki. Sprawdź darmowe materiały i kursy.",
   icons: {
     icon: [
-      { url: '/favicon-original.png', type: 'image/png', sizes: '512x512' },
-      { url: '/icon.png', type: 'image/png', sizes: '180x180' },
+      { url: '/librus/favicon-original.png', type: 'image/png', sizes: '512x512' },
+      { url: '/librus/icon.png', type: 'image/png', sizes: '180x180' },
     ],
-    apple: '/icon.png',
+    apple: '/librus/icon.png',
   },
 };
 
