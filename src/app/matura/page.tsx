@@ -10,6 +10,7 @@ export default function Home() {
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-paulina-bg-yellow selection:text-paulina-primary">
       <Hero
         redirectUrl="/matura/dziekuje"
+        groupId={process.env.NEXT_PUBLIC_MAILERLITE_GROUP_ID_MATURA}
         title={
           <>
             Matura z matematyki <span className="text-paulina-primary">za 6 miesięcy.</span>

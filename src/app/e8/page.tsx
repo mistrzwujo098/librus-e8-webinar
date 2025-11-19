@@ -8,7 +8,10 @@ import { ExitIntentPopup } from "@/components/features/ExitIntentPopup"
 export default function Home() {
   return (
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-paulina-bg-yellow selection:text-paulina-primary">
-      <Hero redirectUrl="/e8/dziekuje" />
+      <Hero
+        redirectUrl="/e8/dziekuje"
+        groupId={process.env.NEXT_PUBLIC_MAILERLITE_GROUP_ID_E8}
+      />
       <Benefits />
       <About />
       <Testimonials />

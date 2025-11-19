@@ -6,21 +6,17 @@ import { Input } from "@/components/ui/input"
 import { trackEvent } from "@/lib/tracking"
 import { ArrowRight, CheckCircle2, Lock } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 interface OptInFormProps {
-    ctaText?: string
-    className?: string
     redirectUrl?: string
+    groupId?: string
 }
 
-export function OptInForm({
-    ctaText = "Pobierz darmowy plan",
-    className,
-    redirectUrl = "/dziekuje"
-}: OptInFormProps) {
-    const [email, setEmail] = React.useState("")
-    const [isLoading, setIsLoading] = React.useState(false)
-    const [error, setError] = React.useState("")
+export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps) {
+    const [email, setEmail] = useState("")
+    const [error, setError] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -28,27 +24,68 @@ export function OptInForm({
         setError("")
         setIsLoading(true)
 
-        if (!email || !email.includes("@")) {
-            setError("Proszę podać poprawny adres email")
+        // Basic validation
+        if (!email) {
+            setError("Wpisz adres email")
+            setIsLoading(false)
+            return
+        }
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            setError("Wpisz poprawny adres email")
             setIsLoading(false)
             return
         }
 
         try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1000))
+            // Track lead attempt
+            trackEvent('StartRegistration', {
+                content_name: 'Webinar Opt-in',
+                value: 0,
+                currency: 'PLN'
+            })
 
-            // Track Lead event
-            trackEvent("Lead", { email })
+            // Send to MailerLite Worker
+            if (groupId) {
+                const workerUrl = process.env.NEXT_PUBLIC_MAILERLITE_WORKER_URL
+                if (workerUrl) {
+                    const response = await fetch(workerUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            groupId: groupId,
+                        }),
+                    })
+
+                    if (!response.ok) {
+                        throw new Error('Subscription failed')
+                    }
+                } else {
+                    console.warn("Missing NEXT_PUBLIC_MAILERLITE_WORKER_URL")
+                }
+            }
+
+            // Track successful lead
+            trackEvent('Lead', {
+                content_name: 'Webinar Opt-in',
+                value: 0,
+                currency: 'PLN'
+            })
 
             // Redirect
             router.push(redirectUrl)
         } catch (err) {
+            console.error("Subscription error:", err)
             setError("Wystąpił błąd. Spróbuj ponownie.")
-        } finally {
             setIsLoading(false)
         }
     }
+
+    // ctaText and className are no longer props, using default values or hardcoding
+    const ctaText = "Pobierz darmowy plan";
+    const className = ""; // Assuming no specific class is passed if not a prop
 
     return (
         <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>

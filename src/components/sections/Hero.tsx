@@ -3,12 +3,14 @@ import Image from "next/image"
 
 interface HeroProps {
     redirectUrl?: string
+    groupId?: string
     title?: React.ReactNode
     subtitle?: string
 }
 
 export function Hero({
     redirectUrl = "/dziekuje",
+    groupId,
     title = (
         <>
             Egzamin ósmoklasisty <span className="text-paulina-primary">za 6 miesięcy.</span>
@@ -36,7 +38,7 @@ export function Hero({
 
                         <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 mb-8">
                             <h3 className="text-lg font-semibold mb-4">Zapisz się bezpłatnie i odbierz plan:</h3>
-                            <OptInForm redirectUrl={redirectUrl} />
+                            <OptInForm redirectUrl={redirectUrl} groupId={groupId} />
                         </div>
 
                         <div className="flex items-center gap-4 text-sm text-slate-500">

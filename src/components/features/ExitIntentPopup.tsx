@@ -40,7 +40,7 @@ export function ExitIntentPopup() {
                     <h4 className="text-lg font-semibold mb-4 text-slate-900">
                         Wpisz email, aby odebrać prezent:
                     </h4>
-                    <OptInForm ctaText="Tak, chcę to!" />
+                    <OptInForm />
                     <button
                         onClick={() => setIsOpen(false)}
                         className="mt-4 w-full text-center text-sm text-slate-400 hover:text-slate-600 underline"
