@@ -49,8 +49,8 @@ export function OptInForm({ redirectUrl = "/dziekuje", type }: OptInFormProps) {
             if (type) {
                 console.log('[OptInForm] Submitting to API Proxy. Type:', type)
 
-                // Note: We use /librus/api/subscribe because of basePath: /librus
-                const response = await fetch("/librus/api/subscribe", {
+                // API route (worker handles /librus prefix routing)
+                const response = await fetch("/api/subscribe", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
