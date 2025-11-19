@@ -14,12 +14,12 @@ export function About() {
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="order-2 lg:order-1">
-                        <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                            <Image
+                        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                            {/* Using standard img tag to ensure it respects aspect ratio and fits container */}
+                            <img
                                 src="https://paulinaodmatematyki.com/wp-content/uploads/2025/11/avatar.webp"
                                 alt="Paulina od Matematyki"
-                                fill
-                                className="object-contain bg-white"
+                                className="w-full h-auto object-contain bg-white"
                             />
                         </div>
                     </div>
@@ -42,11 +42,10 @@ export function About() {
                                 bez przepłacania. 15-20 minut dziennie wystarczy, by osiągnąć sukces.
                             </p>
                             <p>
-                                Jestem twórcą kanału na YouTube z ponad <strong>18 mln wyświetleń</strong>
+                                Jestem twórcą kanału na YouTube z ponad <strong>18 mln wyświetleń </strong>
                                 oraz wielokrotną laureatką plebiscytu Orły Edukacji.
                             </p>
                         </div>
-
                         <div className="grid grid-cols-2 gap-6">
                             {stats.map((stat, index) => (
                                 <div key={index} className="bg-white p-4 rounded-xl shadow-sm border border-slate-100">

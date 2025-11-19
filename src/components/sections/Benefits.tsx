@@ -27,8 +27,8 @@ export function Benefits() {
                     <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
                         To nie będzie "gadanie o niczym"
                     </h2>
-                    <p className="text-lg text-slate-600">
-                        Konkretne narzędzia, które możesz wdrożyć już od piątku. Oto co otrzymasz na darmowym webinarze:
+                    <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
+                        Konkretne narzędzia, które możesz wdrożyć już od jutra. Oto co otrzymasz:
                     </p>
                 </div>
 

@@ -16,7 +16,7 @@ interface OptInFormProps {
 export function OptInForm({
     ctaText = "Pobierz darmowy plan",
     className,
-    redirectUrl = "/dziekujemy"
+    redirectUrl = "/dziekuje"
 }: OptInFormProps) {
     const [email, setEmail] = React.useState("")
     const [isLoading, setIsLoading] = React.useState(false)

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, Download, ArrowRight, PlayCircle } from "lucide-react"
 import Link from "next/link"
+import { CountdownTimer } from "@/components/features/CountdownTimer"
 
 export default function ThankYouPage() {
     return (
@@ -24,7 +25,7 @@ export default function ThankYouPage() {
                 <div className="bg-white p-4 rounded-2xl shadow-xl mb-12">
                     <div className="aspect-video bg-slate-900 rounded-xl flex items-center justify-center relative overflow-hidden">
                         <iframe
-                            src="https://streamyard.com/watch/qdyneqcqtdje4hng?embed=true"
+                            src="https://streamyard.com/watch/XVmcGKzJgcYq?embed=true"
                             width="100%"
                             height="100%"
                             frameBorder="0"
@@ -96,6 +97,9 @@ export default function ThankYouPage() {
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                             Chcesz mieć pewność wyniku?
                         </h2>
+
+                        <CountdownTimer />
+
                         <p className="text-slate-300 mb-8 max-w-2xl mx-auto text-lg">
                             Twoje dziecko zda egzamin ósmoklasisty na ponad 80% bez stresu i drogich korepetycji.
                             <br />
