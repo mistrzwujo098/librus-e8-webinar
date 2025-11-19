@@ -23,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
-        {/* Favicon - manual links to avoid basePath doubling */}
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" href="/icon.png" />
+        {/* Favicon - using PNG (original file was PNG disguised as .ico) */}
+        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-original.png" />
+        <link rel="icon" type="image/png" sizes="180x180" href="/icon.png" />
         <link rel="apple-touch-icon" href="/icon.png" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon-original.png" />
 
         {/* Preconnect dla MailerLite */}
         <link rel="preconnect" href="https://assets.mailerlite.com" />
