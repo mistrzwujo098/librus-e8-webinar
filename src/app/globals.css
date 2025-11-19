@@ -10,6 +10,16 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-paulina-primary: #571A47;
+  --color-paulina-accent: #EC9A4F;
+  --color-paulina-blue: #06AEEF;
+  --color-paulina-bg-purple: #F7EEF4;
+  --color-paulina-bg-yellow: #FEF1D3;
+  --color-paulina-pink: #F5E6E8;
+  --color-paulina-orange: #FF9B50;
+  --color-paulina-purple: #6B2C6B;
+  --color-paulina-teal: #20B2AA;
 }
 
 @media (prefers-color-scheme: dark) {

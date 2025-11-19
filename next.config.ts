@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  basePath: "/librus/e8",
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'paulinaodmatematyki.com',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
