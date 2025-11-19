@@ -1,0 +1,18 @@
+{
+  "facebook": {
+    "pixelId": "328860071729858",
+    "accessToken": "EAAJm4luspHABOZC9HjQrMofJ3wnIgdZBwBxwZBhABv8qJFW2AZAh5ijxqCs866SBZCPwLT8Yn0RbnRW6ZAk7KG5QDrh0eEEc0oDBtJbtzrL0aDvtw6PHhXRo2kETzt31JmPGGUJryeschfHonHfDS9tLuxwZBY4lAxImM5ZCK4kJXFHbZCBwvcxhqkNQkMhZAV832ZAoAZDZD"
+  },
+  "google": {
+    "conversionId": "AW-405660852",
+    "conversionLabel": ""
+  },
+  "tiktok": {
+    "pixelId": "CQ762UBC77U6L0AM30HG",
+    "accessToken": "ef37f6fb9397b5fcbc16355f713b6e60b45f6748"
+  },
+  "mailerlite": {
+    "groupIdE8": "171508717680854768",
+    "groupIdMatura": "171508723313805227"
+  }
+}

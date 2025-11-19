@@ -45,30 +45,27 @@ export function OptInForm({ redirectUrl = "/dziekuje", groupId }: OptInFormProps
             })
 
             // Send to MailerLite Worker
+            // Send to Next.js API Route (Proxy)
             if (groupId) {
-                const workerUrl = process.env.NEXT_PUBLIC_MAILERLITE_WORKER_URL
-                if (workerUrl) {
-                    console.log('[OptInForm] Submitting to:', workerUrl, 'Group:', groupId)
+                console.log('[OptInForm] Submitting to API Proxy. Group:', groupId)
 
-                    const response = await fetch(workerUrl, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            email: email,
-                            groupId: groupId,
-                        }),
-                    })
+                // Note: We use /librus/api/subscribe because of basePath: /librus
+                const response = await fetch("/librus/api/subscribe", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        groupId: groupId,
+                    }),
+                })
 
-                    const data = await response.json()
-                    console.log('[OptInForm] Response:', data)
+                const data = await response.json()
+                console.log('[OptInForm] Response:', data)
 
-                    if (!response.ok) {
-                        throw new Error(data.error || "Wystąpił błąd podczas zapisu")
-                    }
-                } else {
-                    console.warn("Missing NEXT_PUBLIC_MAILERLITE_WORKER_URL")
+                if (!response.ok) {
+                    throw new Error(data.error || "Wystąpił błąd podczas zapisu")
                 }
             }
 
