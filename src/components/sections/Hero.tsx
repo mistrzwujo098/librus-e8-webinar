@@ -27,14 +27,6 @@ export function Hero() {
                         </div>
 
                         <div className="flex items-center gap-4 text-sm text-slate-500">
-                            <div className="flex -space-x-2">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className="h-8 w-8 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-xs font-bold overflow-hidden">
-                                        {/* Placeholder avatars */}
-                                        <div className="w-full h-full bg-paulina-bg-yellow" />
-                                    </div>
-                                ))}
-                            </div>
                             <p>Dołącz do <span className="font-bold text-slate-900">1,247</span> rodziców</p>
                         </div>
                     </div>

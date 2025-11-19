@@ -19,7 +19,7 @@ export function About() {
                                 src="https://paulinaodmatematyki.com/wp-content/uploads/2025/11/avatar.webp"
                                 alt="Paulina od Matematyki"
                                 fill
-                                className="object-cover"
+                                className="object-contain bg-white"
                             />
                         </div>
                     </div>

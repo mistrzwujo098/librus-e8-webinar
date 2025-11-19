@@ -21,20 +21,21 @@ export default function ThankYouPage() {
                 </div>
 
                 {/* Video Placeholder */}
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-12 border border-slate-200">
-                    <div className="aspect-video bg-slate-900 flex items-center justify-center relative group cursor-pointer">
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                        <PlayCircle className="h-20 w-20 text-white opacity-90 group-hover:scale-110 transition-transform relative z-10" />
-                        <p className="absolute bottom-8 text-white font-medium z-10">
-                            Krótkie wideo powitalne od Pauliny (30s)
-                        </p>
+                <div className="bg-white p-4 rounded-2xl shadow-xl mb-12">
+                    <div className="aspect-video bg-slate-900 rounded-xl flex items-center justify-center relative overflow-hidden">
+                        <iframe
+                            src="https://streamyard.com/watch/qdyneqcqtdje4hng?embed=true"
+                            width="100%"
+                            height="100%"
+                            frameBorder="0"
+                            allow="autoplay; fullscreen"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                        ></iframe>
                     </div>
-                    <div className="p-8 text-center">
-                        <h3 className="text-2xl font-bold mb-2">Ważna wiadomość na start</h3>
-                        <p className="text-slate-600">
-                            Zobacz jak najlepiej wykorzystać materiały, które właśnie otrzymałeś.
-                        </p>
-                    </div>
+                    <p className="text-center text-slate-600 mt-4 font-medium">
+                        Nagranie z wyjaśnieniem jak w końcu Twoje dziecko może zrozumieć i polubić matematykę
+                    </p>
                 </div>
 
                 {/* Downloads */}
@@ -53,7 +54,7 @@ export default function ThankYouPage() {
                             <p className="text-slate-600 mb-6">
                                 Kompletny zestaw wzorów, które Twoje dziecko musi znać.
                             </p>
-                            <Link href="https://paulinaodmatematyki.com/prezenty-e8/" target="_blank">
+                            <Link href="https://paulinaodmatematyki.com/wp-content/uploads/2025/07/Wzory-do-egzaminu-osmoklasisty-Paulina-od-Matematyki-2025.pdf" target="_blank">
                                 <Button className="w-full bg-paulina-primary hover:bg-paulina-primary/90">
                                     Pobierz PDF
                                 </Button>
@@ -75,7 +76,7 @@ export default function ThankYouPage() {
                             <p className="text-slate-600 mb-6">
                                 Poradnik o efektywnych technikach nauki matematyki.
                             </p>
-                            <Link href="https://paulinaodmatematyki.com/prezenty-e8/" target="_blank">
+                            <Link href="https://paulinaodmatematyki.com/wp-content/uploads/2025/07/ebook-Jak-sie-uczyc-Paulina-Mis-2025.pdf" target="_blank">
                                 <Button className="w-full bg-paulina-primary hover:bg-paulina-primary/90">
                                     Pobierz PDF
                                 </Button>
@@ -84,29 +85,31 @@ export default function ThankYouPage() {
                     </Card>
                 </div>
 
-                {/* Black Friday Offer / Tripwire */}
-                <div className="bg-slate-900 rounded-2xl p-8 md:p-12 text-white text-center relative overflow-hidden">
-                    <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-red-500 text-white text-xs font-bold px-8 py-2 rotate-45 shadow-lg">
+                {/* Black Friday Offer */}
+                <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                    {/* Ribbon - fixed positioning to be visible */}
+                    <div className="absolute top-0 right-0 bg-paulina-accent text-slate-900 font-black py-2 px-12 transform rotate-45 translate-x-[30%] translate-y-[50%] shadow-xl z-10 border-4 border-slate-900">
                         BLACK FRIDAY
                     </div>
 
-                    <h2 className="text-3xl font-bold mb-4">
-                        Specjalna oferta Black Friday!
-                    </h2>
-                    <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-                        Tylko teraz możesz dołączyć do pełnego kursu przygotowawczego z
-                        <span className="text-paulina-accent font-bold"> 40% zniżką</span>.
-                        Oferta wygasa za 24h.
-                    </p>
+                    <div className="relative z-10">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                            Chcesz mieć pewność wyniku?
+                        </h2>
+                        <p className="text-slate-300 mb-8 max-w-2xl mx-auto text-lg">
+                            Twoje dziecko zda egzamin ósmoklasisty na ponad 80% bez stresu i drogich korepetycji.
+                            <br />
+                            <span className="text-paulina-accent font-bold block mt-2">
+                                Sprawdź ofertę na mój kurs z mnóstwem bonusów ważną tylko do 30 listopada.
+                            </span>
+                        </p>
 
-                    <Button variant="cta" size="xl" className="bg-red-600 hover:bg-red-700 text-white border-none">
-                        Sprawdź ofertę Black Friday
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-
-                    <p className="mt-4 text-sm text-slate-500">
-                        Gwarancja satysfakcji 30 dni.
-                    </p>
+                        <Link href="https://paulinaodmatematyki.com/egzamin-bf" target="_blank">
+                            <Button variant="cta" className="w-full md:w-auto min-w-[300px]">
+                                Sprawdź ofertę Black Friday
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </main>

@@ -69,22 +69,6 @@ export function OptInForm({
             </div>
 
             <div className="space-y-4">
-                <div className="flex items-start gap-2 text-sm text-slate-600">
-                    <input
-                        type="checkbox"
-                        id="privacy"
-                        required
-                        className="mt-1 h-4 w-4 rounded border-slate-300 text-paulina-orange focus:ring-paulina-orange"
-                    />
-                    <label htmlFor="privacy" className="leading-tight">
-                        Zgadzam się na przetwarzanie danych osobowych i otrzymywanie newslettera.
-                        <br />
-                        <span className="text-xs text-slate-500">
-                            Administratorem danych jest Paulina Miś. Szczegóły w polityce prywatności.
-                        </span>
-                    </label>
-                </div>
-
                 <Button
                     type="submit"
                     variant="cta"
@@ -100,11 +84,10 @@ export function OptInForm({
                     )}
                 </Button>
 
-                <div className="flex items-center justify-center gap-2 text-xs text-slate-500">
-                    <Lock className="h-3 w-3" />
-                    <span>100% bezpieczny. Zero spamu.</span>
-                </div>
+                <p className="text-xs text-slate-500 text-center leading-relaxed">
+                    Zapisując się do newslettera, wyrażasz zgodę na otrzymywanie informacji o nowościach, promocjach, produktach i usługach paulinaodmatematyki.com. Twoje dane będą przetwarzane do celów związanych z wysyłką newslettera. Administratorem danych osobowych będzie Paulina Miś. Szczegóły: <a href="https://paulinaodmatematyki.com/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-700">polityka prywatności</a>
+                </p>
             </div>
-        </form>
+        </form >
     )
 }
