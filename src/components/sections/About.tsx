@@ -21,7 +21,7 @@ export function About({ systemMinutes = 15 }: AboutProps) {
                         <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                             {/* Using standard img tag to ensure it respects aspect ratio and fits container */}
                             <img
-                                src="https://paulinaodmatematyki.com/wp-content/uploads/2025/11/avatar.webp"
+                                src="https://paulinaodmatematyki.com/wp-content/uploads/2025/11/PaulinaMis_108-scaled.webp"
                                 alt="Paulina od Matematyki"
                                 className="w-full h-auto object-contain bg-white"
                             />

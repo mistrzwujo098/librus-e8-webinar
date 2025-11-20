@@ -49,7 +49,7 @@ export function Hero({
                     <div className="relative lg:h-[600px] w-full hidden lg:block">
                         <div className="relative w-full h-full transform rotate-3 hover:rotate-0 transition-transform duration-500">
                             <Image
-                                src="https://paulinaodmatematyki.com/wp-content/uploads/2025/11/PaulinaMis_108-scaled.webp"
+                                src="https://paulinaodmatematyki.com/wp-content/uploads/2025/06/hero-1.webp"
                                 alt="Materiały edukacyjne Paulina od Matematyki"
                                 fill
                                 className="object-contain drop-shadow-2xl"
